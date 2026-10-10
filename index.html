@@ -1,0 +1,147 @@
+  <!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAQIIQADA dunida | Raadinta Runta iyo Aqoon Kororsiga</title>
+    <style>
+        /* Naqshadda Guud ee XAQIIQADA dunida */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f7fafc; color: #2d3748; line-height: 1.7; }
+        
+        /* Menu-ga Sare (Navy Blue & Gold) */
+        header { background-color: #0f172a; border-bottom: 4px solid #d4af37; color: white; padding: 18px 0; position: sticky; top: 0; z-index: 100; }
+        .container { width: 85%; margin: auto; max-width: 1200px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 26px; font-weight: bold; color: #ffffff; letter-spacing: 1px; cursor: pointer; }
+        .logo span { color: #d4af37; }
+        
+        nav { display: flex; align-items: center; gap: 15px; }
+        nav a { color: white; text-decoration: none; font-weight: 500; font-size: 15px; cursor: pointer; }
+        nav a:hover { color: #d4af37; }
+        nav button { background: #d4af37; color: #0f172a; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: 0.3s; }
+        nav button:hover { background: #f3e5ab; transform: scale(1.05); }
+
+        /* Meelaha Xayaysiiska AdSense */
+        .adsense-space { background-color: #edf2f7; border: 2px dashed #cbd5e0; text-align: center; padding: 20px; margin: 20px 0; color: #4a5568; font-size: 14px; font-weight: bold; border-radius: 6px; }
+
+        /* Qaybta Maqaalada iyo Sidebar */
+        .main-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 20px; }
+        @media (max-width: 768px) { .main-layout { grid-template-columns: 1fr; } }
+
+        /* Bogagga Dynamic-ga ah */
+        .page-content { display: none; background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 5px solid #0f172a; margin-top: 20px; }
+        .page-content h1 { color: #0f172a; margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid #edf2f7; padding-bottom: 10px; }
+        .page-content h2 { color: #2d3748; margin: 20px 0 10px 0; font-size: 20px; }
+        .page-content p, .page-content ul { margin-bottom: 15px; color: #4a5568; }
+        .page-content ul { padding-left: 20px; }
+
+        /* Maqaalada */
+        .post-card { background: white; padding: 30px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #0f172a; }
+        .post-card h2 { color: #0f172a; margin-bottom: 12px; font-size: 22px; }
+        .post-meta { font-size: 13px; color: #718096; margin-bottom: 15px; font-style: italic; }
+        
+        sidebar { background: white; padding: 25px; border-radius: 8px; height: fit-content; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid #0f172a; }
+        sidebar h3 { border-bottom: 2px solid #d4af37; padding-bottom: 8px; margin-bottom: 15px; color: #0f172a; }
+
+        /* Inputyada Foomka Nala Soo Xiriir */
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #cbd5e0; border-radius: 4px; background: #f7fafc; }
+        .contact-form button { background: #0f172a; color: white; border: none; padding: 12px 25px; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .contact-form button:hover { background: #1a253c; }
+
+        /* Modal-ka Dashboard-ka Maamulka (Pop-up) */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 200; }
+        .modal-content { background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 550px; position: relative; border-top: 5px solid #d4af37; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #aaa; }
+        .close-btn:hover { color: black; }
+
+        /* Foomka Qorista */
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: bold; color: #2d3748; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 4px; font-size: 16px; background-color: #f7fafc; }
+        .form-group textarea { height: 150px; resize: vertical; }
+        .submit-btn { background: #0f172a; color: #d4af37; border: 2px solid #d4af37; padding: 12px 20px; width: 100%; border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .submit-btn:hover { background: #d4af37; color: #0f172a; }
+
+        footer { background-color: #0f172a; color: #a0aec0; text-align: center; padding: 25px 0; margin-top: 50px; font-size: 14px; border-top: 4px solid #d4af37; }
+        footer a { color: #d4af37; text-decoration: none; margin: 0 10px; cursor: pointer; }
+        footer a:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Menu-ga Sare -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo" onclick="showSection('home')">XAQIIQADA <span>dunida</span></div>
+            <nav>
+                <a onclick="showSection('home')">Hoyga</a>
+                <a onclick="showSection('about')">Ku Saabsan</a>
+                <a onclick="showSection('privacy')">Privacy Policy</a>
+                <a onclick="showSection('contact')">Nala Soo Xiriir</a>
+                <button onclick="toggleModal(true)">+ Qor Maqaal Cusub</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Meesha Xayaysiiska Google AdSense -->
+        <div class="adsense-space">[ Meesha Xayaysiiska Google AdSense - Banner Sare ]</div>
+
+        <!-- Section 1: Hoyga (Maqaalada & Sidebar) -->
+        <div id="home-section" class="main-layout">
+            <main id="posts-container">
+                <!-- Maqaaladii halkan ayay ku soo baxayaan -->
+            </main>
+            <sidebar>
+                <h3>Ku Saabsan Baloogga</h3>
+                <p style="color: #4a5568; margin-bottom: 20px; font-size: 15px;">**XAQIIQADA dunida** waa madal madax-bannaan oo lagula wadaago xaqiiqooyinka sayniska, taariikhda, tiknoolajiyada, iyo dhacdooyinka caalamiga ah ee rasmiga ah.</p>
+                <div class="adsense-space" style="padding: 50px 10px;">[ AdSense Sidebar ]</div>
+            </sidebar>
+        </div>
+
+        <!-- Section 2: Ku Saabsan (About Us) -->
+        <div id="about-section" class="page-content">
+            <h1>Ku Saabsan XAQIIQADA dunida</h1>
+            <p>Ku soo dhowaada <strong>XAQIIQADA dunida</strong>, shabakad madax-bannaan oo u taagan soo gudbinta xaqiiqooyinka qarsoon, aqoonta sayniska, taariikhda caalamka, iyo tiknoolajiyada casriga ah.</p>
+            <h2>Ujeedadeena</h2>
+            <p>Hadafkayagu waa inaan bulshada ku hadasha afka Soomaaliga u soo gudbino qoraalo baaris qoto dheer lagu sameeyo, oo xaqiiqooyin rami ah ku fadhiya, kana fogaada wararka been abuurka ah ee internet-ka ku badan.</p>
+            <h2>Maxaan Daabacnaa?</h2>
+            <ul>
+                <li>Baaritaano ku saabsan dhacdooyinka taariikhiga ah iyo kuwa caalamiga ah.</li>
+                <li>Xaqiiqooyin cilmiyeed iyo horumarka tiknoolajiyada casriga ah.</li>
+                <li>Maqaalo aqoon kororsi ah oo kor u qaada garaadka akhriste kasta.</li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Privacy Policy -->
+        <div id="privacy-section" class="page-content">
+            <h1>Xeerka Ilaalinta Xogta (Privacy Policy)</h1>
+            <p>Privacy Policy-gaan wuxuu qeexayaa sida <strong>XAQIIQADA dunida</strong> u maamusho xogta akhristayaasheeda. Asturnantaada waa noogu horeyn.</p>
+            <h2>1. Cookies iyo Xayaysiisyada</h2>
+            <p>Website-kayagu wuxuu isticmaalaa Cookies si aan u wanaajino khibradaada adeegsi. Waxaan sidoo kale la shaqaynaa shirkado xayaysiis oo dibada ah sida <strong>Google AdSense</strong>. Google waxay isticmaashaa Cookies si ay xayaysiisyo ku habboon kuu tusto marka aad booqato shabakadan iyo shabakadaha kaleba.</p>
+            <h2>2. Xogta aan Ururino</h2>
+            <p>Ma ururino xogtaada gaarka ah balse nidaamkayaga Google Analytics wuxuu si otomaatig ah u diwaangeliyaa macluumaadka guud sida nooca birawsarka aad isticmaalayso, wadanka aad ka soo gashay, iyo boggaga aad akhrisato si aan u hagaajino tayada qoraalada.</p>
+            <h2>3. Ilaalinta Xogta</h2>
+            <p>Marnaba lama wadaagno, mana ka iibinno xogta akhristayaashayada shirkado saddexaad.</p>
+        </div>
+
+        <!-- Section 4: Nala Soo Xiriir (Contact Us) -->
+        <div id="contact-section" class="page-content">
+            <h1>Nala Soo Xiriir (Contact Us)</h1>
+            <p>Haddii aad qabto wax su'aalo ah, fikrado, ama aad rabto inaad nala wadaagto qoraal xaqiiqo ah, fadlan foomkan hoose isticmaal si aad farriintaada noogu soo dirto:</p>
+            <div class="contact-form" style="max-width: 500px; margin-top: 20px;">
+                <input type="text" placeholder="Magacaaga iyo Naanaystaada" required>
+                <input type="email" placeholder="Email-kaaga rasmiga ah" required>
+                <textarea placeholder="Halkan ku qor fariintaada ama su'aashaada..." style="height: 120px;" required></textarea>
+                <button onclick="alert('Waad ku mahadsan tahay nala soo xiriirkaaga! Fariintaadu si guul leh ayay u gudubtay.')">Gudbi Fariinta</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Dashboard-ka Maamulka (Foomka Pop-up) -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleModal(false)">&times;</span>
+      
